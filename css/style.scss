@@ -9,6 +9,10 @@ $textBlack: #2B3442;
 $shadowBox: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
 $font: 'Space Mono', monospace;
 
+h1 ,h2, h3, h4, h5, h6{
+    padding: 0;
+    margin: 0;
+}
 body{
     background-color: $mainColor;
     width: 100%;
@@ -83,6 +87,7 @@ nav input{
     font-size: 0.7vw;
     line-height: 1.1vw;
     padding: 15px;
+    visibility: hidden;
 }
 nav button{
     border: none;
@@ -99,4 +104,31 @@ main{
     box-shadow: $shadowBox;
     background-color: $secondaryColor;
     border-radius: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.img{
+    grid-area: 1/1/3/2;
+    border: 1px solid black;
+}
+.title{
+    grid-area: 1/2/2/3;
+    border: 1px solid black;
+}
+.date{
+    grid-area: 1/3/2/4;
+    border: 1px solid black;
+}
+.profil{
+    grid-area: 2/2/3/4;
+    border: 1px solid black;
+}
+.box{
+    grid-area: 3/2/4/4;
+    border: 1px solid black;
+}
+.contact{
+    grid-area: 4/2/5/4;
+    border: 1px solid black;
 }
