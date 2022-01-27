@@ -17,16 +17,17 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: "Space Mono", monospace;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .main_box {
+  grid-area: 2/2/3/3;
   display: grid;
   grid-template-columns: 38vw;
-  grid-template-rows: 2vw 3.6vw 22vw;
+  grid-template-rows: 3vw 3.6vw 22vw;
   grid-gap: 1vw;
 }
 
@@ -35,32 +36,32 @@ header {
   grid-area: 1/1/2/2;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-
-h2 {
-  margin: 0;
-  padding: 0;
-  font-size: 1.5vw;
-  line-height: 1.7vw;
+header h2 {
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+  font-size: 1.625rem;
+  line-height: 2.375rem;
+  color: #2B3442;
 }
-
 header label {
   display: flex;
   align-items: center;
-  color: #697C9A;
-  font-size: 1vw;
-  line-height: 1vw;
-  letter-spacing: 0.1vw;
-  margin: 0;
-  padding: 0;
   cursor: pointer;
+  font-family: "Space Mono", monospace;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #0079FF;
+  color: #697C9A;
+  letter-spacing: 3px;
+}
+header label div {
+  margin: 0.5vw;
 }
 header label:hover {
   color: #030304;
-}
-
-header h4 {
-  margin: 0.5vw;
 }
 
 /* Barre de recherche */
@@ -73,40 +74,30 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-
 nav label {
   display: flex;
   align-items: center;
   padding: 10px;
 }
-
 nav i {
   color: #0079FF;
   padding: 20px;
-  font-size: 1.5vw;
+  font-size: 2rem;
 }
-
 nav input {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   border: none;
+  outline: none;
   font-family: "Space Mono", monospace;
   width: 14vw;
-  font-size: 0.9vw;
-  line-height: 1.3vw;
+  font-size: 1.1rem;
   caret-color: #0079FF;
-  outline: none;
 }
-
-.error {
+nav .error {
   color: #F74646;
-  font-size: 0.7vw;
-  line-height: 1.1vw;
+  font-size: 0.875rem;
   padding: 15px;
   visibility: hidden;
 }
-
 nav button {
   border: none;
   background-color: #0079FF;
@@ -115,7 +106,7 @@ nav button {
   border-radius: 10px;
   font-family: "Space Mono", monospace;
   color: #FEFEFE;
-  font-size: 0.8vw;
+  font-size: 1.081rem;
   cursor: pointer;
 }
 nav button:hover {
@@ -151,15 +142,15 @@ main {
 .title h1 {
   font-family: "Space Mono", monospace;
   font-weight: bold;
-  font-size: 1.3vw;
-  line-height: 1.9vw;
+  font-size: 1.625rem;
+  line-height: 2.375rem;
   color: #2B3442;
 }
 .title h3 {
   font-family: "Space Mono", monospace;
   font-weight: normal;
-  font-size: 0.8vw;
-  line-height: 1.2vw;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: #0079FF;
 }
 
@@ -169,8 +160,8 @@ main {
   justify-content: end;
   font-family: "Space Mono", monospace;
   font-weight: normal;
-  font-size: 0.8vw;
-  line-height: 1.2vw;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: #0079FF;
   color: #697C9A;
 }
@@ -179,8 +170,8 @@ main {
   grid-area: 2/2/3/4;
   font-family: "Space Mono", monospace;
   font-weight: normal;
-  font-size: 0.7vw;
-  line-height: 1.3vw;
+  font-size: 0.938rem;
+  line-height: 1.563rem;
   color: #2B3442;
   color: #4B6A9B;
 }
@@ -196,15 +187,15 @@ main {
 .box .statTitle {
   font-family: "Space Mono", monospace;
   font-weight: normal;
-  font-size: 0.6vw;
-  line-height: 1vw;
+  font-size: 0.813rem;
+  line-height: 1.25rem;
   color: #4B6A9B;
 }
 .box .stat {
   font-family: "Space Mono", monospace;
   font-weight: bold;
-  font-size: 1.1vw;
-  line-height: 1.7vw;
+  font-size: 1.375rem;
+  line-height: 2rem;
   color: #2B3442;
 }
 
@@ -215,8 +206,8 @@ main {
 .contact .contactText {
   font-family: "Space Mono", monospace;
   font-weight: normal;
-  font-size: 0.8vw;
-  line-height: 1.2vw;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: #0079FF;
   color: #4B6A9B;
 }
@@ -225,7 +216,7 @@ main {
 }
 .contact .contactLogo {
   color: #4B6A9B;
-  font-size: 1vw;
+  font-size: 1.188rem;
 }
 .contact .contactMono {
   margin-bottom: 0.5vw;

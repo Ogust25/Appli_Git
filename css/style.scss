@@ -20,36 +20,36 @@ $font: 'Space Mono', monospace;
 @mixin h1 {
     font-family: $font;
     font-weight: bold;
-    font-size: 1.3vw;
-    line-height: 1.9vw;
+    font-size: 1.625rem;
+    line-height: 2.375rem;
     color: $textBlack;
 }
 @mixin h2 {
     font-family: $font;
     font-weight: bold;
-    font-size: 1.1vw;
-    line-height: 1.7vw;
+    font-size: 1.375rem;
+    line-height: 2rem;
     color: $textBlack;
 }
 @mixin h3 {
     font-family: $font;
     font-weight: normal;
-    font-size: 0.8vw;
-    line-height: 1.2vw;
+    font-size: 1rem;
+    line-height: 1.5rem;
     color: $actionColor;
 }
 @mixin h4 {
     font-family: $font;
     font-weight: normal;
-    font-size: 0.6vw;
-    line-height: 1vw;
+    font-size: 0.813rem;
+    line-height:1.25rem;
     color: $textBlue;
 }
 @mixin body {
     font-family: $font;
     font-weight: normal;
-    font-size: 0.7vw;
-    line-height: 1.3vw;
+    font-size: 0.938rem;
+    line-height: 1.563rem;
     color: $textBlack;
 }
 
@@ -68,15 +68,16 @@ body{
     height: 100vh;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: $font;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 .main_box{
+    grid-area: 2/2/3/3;
     display: grid;
     grid-template-columns: 38vw;
-    grid-template-rows: 2vw 3.6vw 22vw;
+    grid-template-rows: 3vw 3.6vw 22vw;
     grid-gap: 1vw;
 }
 
@@ -85,29 +86,24 @@ header{
     grid-area: 1/1/2/2;
     display: flex;
     justify-content: space-between;
-}
-h2{
-    margin: 0;
-    padding: 0;
-    font-size: 1.5vw;
-    line-height: 1.7vw;
-}
-header label{
-    display: flex;
     align-items: center;
-    color: $textGrey;
-    font-size: 1vw;
-    line-height: 1vw;
-    letter-spacing: 0.1vw;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    &:hover{
-        color: $textBlackActive;
+    h2{
+        @include h1;
     }
-}
-header h4{
-    margin: 0.5vw;
+    label{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        @include h3;
+        color: $textGrey;
+        letter-spacing: 3px;
+        div{
+            margin: 0.5vw;
+        }
+        &:hover{
+            color: $textBlackActive;
+        }
+    }
 }
 
 /* Barre de recherche */
@@ -119,47 +115,43 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
-}
-nav label{
-    display: flex;
-    align-items: center;
-    padding: 10px;
-}
-nav i{
-    color: $actionColor;
-    padding: 20px;
-    font-size: 1.5vw;
-}
-nav input{
-    appearance: none;
-    border: none;
-    font-family: $font;
-    width: 14vw;
-    font-size: 0.9vw;
-    line-height: 1.3vw;
-    caret-color: $actionColor;
-    outline: none;
-}
-.error{
-    color: #F74646;
-    font-size: 0.7vw;
-    line-height: 1.1vw;
-    padding: 15px;
-    visibility: hidden;
-}
-nav button{
-    border: none;
-    background-color: $actionColor;
-    height: 2.6vw;
-    width: 5.5vw;
-    border-radius: 10px;
-    font-family: $font;
-    color: $secondaryColor;
-    font-size: 0.8vw;
-    cursor: pointer;
-    &:hover{
-        background-color: $actionColorActive;
+    label{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+    i{
+        color: $actionColor;
+        padding: 20px;
+        font-size: 2rem;
+    }
+    input{
+        border: none;
+        outline: none;
+        font-family: $font;
+        width: 14vw;
+        font-size: 1.1rem;
+        caret-color: $actionColor;
+    }
+    .error{
+        color: #F74646;
+        font-size: 0.875rem;
+        padding: 15px;
+        visibility: hidden;
+    }
+    button{
+        border: none;
+        background-color: $actionColor;
+        height: 2.6vw;
+        width: 5.5vw;
+        border-radius: 10px;
+        font-family: $font;
+        color: $secondaryColor;
+        font-size: 1.081rem;
+        cursor: pointer;
+        &:hover{
+            background-color: $actionColorActive;
+        }
     }
 }
 
@@ -231,7 +223,7 @@ main{
     }
     .contactLogo{
         color: $textBlue;
-        font-size: 1vw;
+        font-size: 1.188rem;
     }
     .contactMono{
         margin-bottom: 0.5vw;
@@ -245,4 +237,12 @@ main{
 }
 .contact i{
     margin-right: 20px;
+}
+
+@media screen and (max-width: 780px) and (min-width: 425px){
+
+}
+
+@media screen and (max-width: 425px){
+    
 }
