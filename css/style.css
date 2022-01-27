@@ -1,4 +1,5 @@
 /* light mod */
+/* dark mod */
 /* Core */
 .center {
   display: flex;
@@ -129,7 +130,7 @@ main {
   border-radius: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 2.3vw 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   padding: 1.5vw 1.5vw 1.5vw 0;
 }
 
@@ -147,15 +148,41 @@ main {
 .title {
   grid-area: 1/2/2/3;
 }
+.title h1 {
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+  font-size: 1.3vw;
+  line-height: 1.9vw;
+  color: #2B3442;
+}
+.title h3 {
+  font-family: "Space Mono", monospace;
+  font-weight: normal;
+  font-size: 0.8vw;
+  line-height: 1.2vw;
+  color: #0079FF;
+}
 
 .date {
   grid-area: 1/3/2/4;
   display: flex;
   justify-content: end;
+  font-family: "Space Mono", monospace;
+  font-weight: normal;
+  font-size: 0.7vw;
+  line-height: 1.3vw;
+  color: #2B3442;
+  color: #697C9A;
 }
 
 .profil {
   grid-area: 2/2/3/4;
+  font-family: "Space Mono", monospace;
+  font-weight: normal;
+  font-size: 0.7vw;
+  line-height: 1.3vw;
+  color: #2B3442;
+  color: #4B6A9B;
 }
 
 .box {
@@ -164,16 +191,44 @@ main {
   justify-content: space-evenly;
   border-radius: 0.5vw;
 }
+.box .statTitle {
+  font-family: "Space Mono", monospace;
+  font-weight: normal;
+  font-size: 0.6vw;
+  line-height: 1vw;
+  color: #4B6A9B;
+}
+.box .stat {
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+  font-size: 1.1vw;
+  line-height: 1.7vw;
+  color: #2B3442;
+}
 
 .contact {
   grid-area: 4/2/5/4;
-  display: flex;
-  align-items: center;
+  margin-top: 1vw;
+}
+.contact .contactText {
+  font-family: "Space Mono", monospace;
+  font-weight: normal;
+  font-size: 0.8vw;
+  line-height: 1.2vw;
+  color: #0079FF;
+  color: #4B6A9B;
+}
+.contact .contactLogo {
+  color: #4B6A9B;
+  font-size: 1vw;
+}
+.contact .contactMono {
+  margin-bottom: 0.5vw;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 85%);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 100%;
 }
 
