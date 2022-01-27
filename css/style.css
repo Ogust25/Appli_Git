@@ -1,4 +1,5 @@
 /* light mod */
+/* Core */
 .center {
   display: flex;
   align-items: center;
@@ -28,6 +29,7 @@ body {
   grid-gap: 1vw;
 }
 
+/* Logo + darkmod */
 header {
   grid-area: 1/1/2/2;
   display: flex;
@@ -50,12 +52,17 @@ header label {
   letter-spacing: 0.1vw;
   margin: 0;
   padding: 0;
+  cursor: pointer;
+}
+header label:hover {
+  color: #030304;
 }
 
 header h4 {
   margin: 0.5vw;
 }
 
+/* Barre de recherche */
 nav {
   grid-area: 2/1/3/2;
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
@@ -87,6 +94,8 @@ nav input {
   width: 14vw;
   font-size: 0.9vw;
   line-height: 1.3vw;
+  caret-color: #0079FF;
+  outline: none;
 }
 
 .error {
@@ -106,8 +115,13 @@ nav button {
   font-family: "Space Mono", monospace;
   color: #FEFEFE;
   font-size: 0.8vw;
+  cursor: pointer;
+}
+nav button:hover {
+  background-color: #66afff;
 }
 
+/* Main Page */
 main {
   grid-area: 3/1/4/2;
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
