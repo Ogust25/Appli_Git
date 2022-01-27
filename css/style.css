@@ -129,9 +129,9 @@ main {
   background-color: #FEFEFE;
   border-radius: 15px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 10vw 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  padding: 1.5vw 1.5vw 1.5vw 0;
+  padding: 2vw 1.5vw 1.5vw 0;
 }
 
 .img {
@@ -169,9 +169,9 @@ main {
   justify-content: end;
   font-family: "Space Mono", monospace;
   font-weight: normal;
-  font-size: 0.7vw;
-  line-height: 1.3vw;
-  color: #2B3442;
+  font-size: 0.8vw;
+  line-height: 1.2vw;
+  color: #0079FF;
   color: #697C9A;
 }
 
@@ -188,8 +188,10 @@ main {
 .box {
   grid-area: 3/2/4/4;
   background-color: #F6F8FF;
-  justify-content: space-evenly;
   border-radius: 0.5vw;
+}
+.box > div {
+  margin: 0 3vw 0 1.5vw;
 }
 .box .statTitle {
   font-family: "Space Mono", monospace;
@@ -218,12 +220,16 @@ main {
   color: #0079FF;
   color: #4B6A9B;
 }
+.contact .contactText:hover {
+  text-decoration: underline;
+}
 .contact .contactLogo {
   color: #4B6A9B;
   font-size: 1vw;
 }
 .contact .contactMono {
   margin-bottom: 0.5vw;
+  cursor: pointer;
 }
 
 .grid {
