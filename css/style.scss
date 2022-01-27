@@ -221,28 +221,106 @@ main{
             text-decoration: underline;
         }
     }
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 100%;
+    }
     .contactLogo{
         color: $textBlue;
         font-size: 1.188rem;
+        margin-right: 20px;
     }
     .contactMono{
         margin-bottom: 0.5vw;
         cursor: pointer;
     }
 }
-.grid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100%;
-}
-.contact i{
-    margin-right: 20px;
-}
+
 
 @media screen and (max-width: 780px) and (min-width: 425px){
-
+    .main_box{
+        grid-template-columns: 70vw;
+        grid-template-rows: 5vw 8vw 60vw;
+        grid-gap: 3vw;
+    }
+    nav{
+        i{
+            padding: 1vw 1vw;
+        }
+        input{
+            font-size: 0.8rem;
+            width: 29vw;
+        }
+        button{
+            height: 6vw;
+            width: 15vw;
+        }
+        .error{
+            font-size: 0.7em;
+            width: 10vw;
+            padding: 0;
+        }
+    }
+    main{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 7vw 1fr 1fr 1fr;
+        padding: 5vw;
+    }
+    .img{
+        grid-area: 1/1/3/2;
+        align-items: start;
+        justify-content: start;
+        div{
+            width: 15vw;
+            height: 15vw;
+        }
+    }
+    .title{
+        grid-area: 1/2/2/4;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+    .date{
+        grid-area: 2/2/3/4;
+        justify-content: start;
+        font-size: 0.9rem;
+    }
+    .profil{
+        grid-area: 3/1/4/4;
+    }
+    .box{
+        grid-area: 4/1/5/4;
+        &>div{
+            margin: 0 10vw 0 3vw;
+        }
+    }
+    .contact{
+        grid-area: 5/1/6/4;
+        margin-top: 1vw;
+        .grid{
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 100%;
+        }
+        .contactPar2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+    }
 }
 
 @media screen and (max-width: 425px){
-    
+    body{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 8vw 1fr;
+    }
+    .main_box{
+        grid-area: 2/2/3/3;
+        grid-template-columns: 85vw;
+        grid-template-rows: 10vw 20vw 160vw;
+        grid-gap: 5vw;
+    }
 }
