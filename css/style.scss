@@ -1,4 +1,3 @@
-/* light mod */
 $mainColor: #F6F8FF;
 $secondaryColor: #FEFEFE;
 $actionColor: #0079FF;
@@ -8,7 +7,6 @@ $textGrey: #697C9A;
 $textBlue: #4B6A9B;
 $textBlack: #2B3442;
 
-/* dark mod */
 $dMainColor: #141D2F;
 $dSecondaryColor : #1E2A47;
 $dTextWhite: #ffffff;
@@ -51,6 +49,58 @@ $font: 'Space Mono', monospace;
     font-size: 0.938rem;
     line-height: 1.563rem;
     color: $textBlack;
+}
+
+/* light/dark mode */
+body.darkMode{
+    background-color: $dMainColor;
+    header{
+        h2{
+            color: $dTextWhite;
+        }
+        label{
+            color: $dTextWhite;
+            &:hover{
+                color: darken($dTextWhite,30%);
+            }
+        }
+    }
+    nav{
+        background-color: $dSecondaryColor;
+        input{
+            color: $dTextWhite;
+            background-color: transparent;
+        }
+        input::placeholder{
+            color: $dTextWhite;
+        }
+    }
+    main{
+        background-color: $dSecondaryColor;
+        .img div{
+            background-color: $secondaryColor;
+        }
+        .title h1{
+            color: $dTextWhite;
+        }
+        .date{
+            color: $dTextWhite;
+        }
+        .profil{
+            color: $dTextWhite;
+        }
+        .box{
+            background-color: $dMainColor;
+            div{
+                color: $dTextWhite;
+            }
+        }
+        .contact{
+            div, i{
+                color: $dTextWhite;
+            }
+        }
+    }
 }
 
 /* Core */
@@ -320,7 +370,7 @@ main{
     .main_box{
         grid-area: 2/2/3/3;
         grid-template-columns: 90vw;
-        grid-template-rows: 5vh 10vh 75vh;
+        grid-template-rows: 5vh 10vh 66vh;
         grid-gap: 5vw;
     }
     nav{
@@ -347,13 +397,15 @@ main{
     }
     main{
         grid-template-columns: 25vw 1fr;
-        grid-template-rows: 10vh 7vh 15vh 12vh 1fr;
+        grid-template-rows: 7vh 7vh 15vh 12vh 1fr;
         padding: 5vw;
     }
     .img{
         grid-area: 1/1/3/2;
-        justify-content: center;
-        align-items: center;
+        div{
+            width: 20vw;
+            height: 20vw;
+        }
     }
     .title{
         grid-area: 1/2/2/3;

@@ -1,5 +1,57 @@
-/* light mod */
-/* dark mod */
+/* light/dark mode */
+body.darkMode {
+  background-color: #141D2F;
+}
+body.darkMode header h2 {
+  color: #ffffff;
+}
+body.darkMode header label {
+  color: #ffffff;
+}
+body.darkMode header label:hover {
+  color: #b3b3b3;
+}
+body.darkMode nav {
+  background-color: #1E2A47;
+}
+body.darkMode nav input {
+  color: #ffffff;
+  background-color: transparent;
+}
+body.darkMode nav input::-moz-placeholder {
+  color: #ffffff;
+}
+body.darkMode nav input:-ms-input-placeholder {
+  color: #ffffff;
+}
+body.darkMode nav input::placeholder {
+  color: #ffffff;
+}
+body.darkMode main {
+  background-color: #1E2A47;
+}
+body.darkMode main .img div {
+  background-color: #FEFEFE;
+}
+body.darkMode main .title h1 {
+  color: #ffffff;
+}
+body.darkMode main .date {
+  color: #ffffff;
+}
+body.darkMode main .profil {
+  color: #ffffff;
+}
+body.darkMode main .box {
+  background-color: #141D2F;
+}
+body.darkMode main .box div {
+  color: #ffffff;
+}
+body.darkMode main .contact div, body.darkMode main .contact i {
+  color: #ffffff;
+}
+
 /* Core */
 .center {
   display: flex;
@@ -317,7 +369,7 @@ main {
   .main_box {
     grid-area: 2/2/3/3;
     grid-template-columns: 90vw;
-    grid-template-rows: 5vh 10vh 75vh;
+    grid-template-rows: 5vh 10vh 66vh;
     grid-gap: 5vw;
   }
 
@@ -344,14 +396,16 @@ main {
 
   main {
     grid-template-columns: 25vw 1fr;
-    grid-template-rows: 10vh 7vh 15vh 12vh 1fr;
+    grid-template-rows: 7vh 7vh 15vh 12vh 1fr;
     padding: 5vw;
   }
 
   .img {
     grid-area: 1/1/3/2;
-    justify-content: center;
-    align-items: center;
+  }
+  .img div {
+    width: 20vw;
+    height: 20vw;
   }
 
   .title {
