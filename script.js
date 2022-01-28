@@ -27,14 +27,67 @@ let apiCall = function(userName){
     .then((response) =>
         response.json().then((data) => {
             console.log(data);
-            let src = document.querySelector(".avatar").getAttribute("src")
-            document.src.innerHTML = data.avatar_url;
-            document.querySelector(".name").innerHTML = data.name;
+            
+            let x = document.querySelector(".avatar");
+            let y = x.getAttribute("src");
+            y = data.avatar_url;
+            x.setAttribute("src", y);
+
+            if(data.name == null){
+                document.querySelector(".name").innerHTML = data.login;
+            }else{
+                document.querySelector(".name").innerHTML = data.name;
+            }
+
             document.querySelector(".login").innerHTML = "@" + (data.login);
+
+            document.querySelector(".date").innerHTML = "Joined " + (data.created_at);
+
             if(data.bio == null){
                 document.querySelector(".profil").innerHTML = "This profile has no bio";
             }else{
                 document.querySelector(".profil").innerHTML = data.bio;
+            }
+
+            document.querySelector(".repos").innerHTML = data.public_repos;
+            document.querySelector(".followers").innerHTML = data.followers;
+            document.querySelector(".following").innerHTML = data.following;
+
+            if(data.location == null){
+                document.querySelector(".location").innerHTML = "Not available";
+                document.querySelector(".location").style.color = "rgb(75, 106, 155, 60%)";
+                document.querySelector(".fa-map-marker-alt").style.color = "rgb(75, 106, 155, 60%)";
+            }else{
+                document.querySelector(".location").innerHTML = data.location;
+                document.querySelector(".location").style.color = "#4B6A9B";
+                document.querySelector(".fa-map-marker-alt").style.color = "#4B6A9B";
+            }
+            if(data.twitter_username == null){
+                document.querySelector(".twitter").innerHTML = "Not available";
+                document.querySelector(".twitter").style.color = "rgb(75, 106, 155, 60%)";
+                document.querySelector(".fa-twitter").style.color = "rgb(75, 106, 155, 60%)";
+            }else{
+                document.querySelector(".twitter").innerHTML = data.twitter_username;
+                document.querySelector(".twitter").style.color = "#4B6A9B";
+                document.querySelector(".fa-twitter").style.color = "#4B6A9B";
+            }
+            if(data.company == null){
+                document.querySelector(".company").innerHTML = "Not available";
+                document.querySelector(".company").style.color = "rgb(75, 106, 155, 60%)";
+                document.querySelector(".fa-building").style.color = "rgb(75, 106, 155, 60%)";
+            }else{
+                document.querySelector(".company").innerHTML = data.company;
+                document.querySelector(".company").style.color = "#4B6A9B";
+                document.querySelector(".fa-building").style.color = "#4B6A9B";
+            }
+            if((data.blog == null) || (data.blog == "")){
+                document.querySelector(".blog").innerHTML = "Not available";
+                document.querySelector(".blog").style.color = "rgb(75, 106, 155, 60%)";
+                document.querySelector(".fa-link").style.color = "rgb(75, 106, 155, 60%)";
+            }else{
+                document.querySelector(".blog").innerHTML = data.blog;
+                document.querySelector(".blog").style.color = "#4B6A9B";
+                document.querySelector(".fa-link").style.color = "#4B6A9B";
             }
         })
     )  
