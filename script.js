@@ -18,5 +18,31 @@ btnTheme.addEventListener("click", function(){
     }
 })
 
+/* API GitHub */
+const APIKEY = "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";
+
+let apiCall = function(userName){
+    let url = `https://api.github.com/users/${userName}`;
+    fetch(url)
+    .then((response) =>
+        response.json().then((data) => {
+            console.log(data);
+            let src = document.querySelector(".avatar").getAttribute("src")
+            document.src.innerHTML = data.avatar_url;
+            document.querySelector(".name").innerHTML = data.name;
+            document.querySelector(".login").innerHTML = "@" + (data.login);
+            if(data.bio == null){
+                document.querySelector(".profil").innerHTML = "This profile has no bio";
+            }else{
+                document.querySelector(".profil").innerHTML = data.bio;
+            }
+        })
+    )  
+}
 
 /* btn search + error */
+document.querySelector(".btnSearch").addEventListener('click', function(){
+    let user = document.querySelector('.searchBar').value;
+    apiCall(user);
+})
+apiCall("octocat");
