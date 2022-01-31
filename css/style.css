@@ -262,9 +262,6 @@ main {
   color: #0079FF;
   color: #4B6A9B;
 }
-.contact .contactText:hover {
-  text-decoration: underline;
-}
 .contact .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -277,7 +274,12 @@ main {
 }
 .contact .contactMono {
   margin-bottom: 0.5vw;
-  cursor: pointer;
+}
+.contact .blog, .contact .twitter, .contact .company {
+  text-decoration: none;
+}
+.contact .blog:hover, .contact .twitter:hover, .contact .company:hover {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 780px) and (min-width: 425px) {

@@ -28,10 +28,10 @@ let apiCall = function(userName){
         response.json().then((data) => {
             console.log(data);
             
-            let x = document.querySelector(".avatar");
-            let y = x.getAttribute("src");
-            y = data.avatar_url;
-            x.setAttribute("src", y);
+            let logo = document.querySelector(".avatar");
+            let src = logo.getAttribute("src");
+            src = data.avatar_url;
+            logo.setAttribute("src", src);
 
             if(data.name == null){
                 document.querySelector(".name").innerHTML = data.login;
@@ -70,6 +70,11 @@ let apiCall = function(userName){
                 document.querySelector(".twitter").innerHTML = data.twitter_username;
                 document.querySelector(".twitter").style.color = "#4B6A9B";
                 document.querySelector(".fa-twitter").style.color = "#4B6A9B";
+
+                let twitter = document.querySelector(".twitter");
+                let href = twitter.getAttribute("href");
+                href = data.twitter_username;
+                twitter.setAttribute("href", "https://twitter.com/" + href);
             }
             if(data.company == null){
                 document.querySelector(".company").innerHTML = "Not available";
@@ -79,6 +84,11 @@ let apiCall = function(userName){
                 document.querySelector(".company").innerHTML = data.company;
                 document.querySelector(".company").style.color = "#4B6A9B";
                 document.querySelector(".fa-building").style.color = "#4B6A9B";
+
+                let company = document.querySelector(".company");
+                let href = company.getAttribute("href");
+                href = data.company;
+                company.setAttribute("href", href);
             }
             if((data.blog == null) || (data.blog == "")){
                 document.querySelector(".blog").innerHTML = "Not available";
@@ -88,6 +98,11 @@ let apiCall = function(userName){
                 document.querySelector(".blog").innerHTML = data.blog;
                 document.querySelector(".blog").style.color = "#4B6A9B";
                 document.querySelector(".fa-link").style.color = "#4B6A9B";
+
+                let link = document.querySelector(".blog");
+                let href = link.getAttribute("href");
+                href = data.blog;
+                link.setAttribute("href", href);
             }
         })
     )  
@@ -95,7 +110,12 @@ let apiCall = function(userName){
 
 /* btn search + error */
 document.querySelector(".btnSearch").addEventListener('click', function(){
-    let user = document.querySelector('.searchBar').value;
-    apiCall(user);
+    if((document.querySelector('.searchBar').value == "") || (document.querySelector('.searchBar').value == "")){
+        document.querySelector('.error').style.visibility= "visible";
+    }else{
+        document.querySelector('.error').style.visibility= "hidden";
+        let user = document.querySelector('.searchBar').value;
+        apiCall(user);
+    }
 })
 apiCall("octocat");

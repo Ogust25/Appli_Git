@@ -267,9 +267,6 @@ main{
     .contactText{
         @include h3;
         color: $textBlue;
-        &:hover{
-            text-decoration: underline;
-        }
     }
     .grid{
         display: grid;
@@ -283,7 +280,12 @@ main{
     }
     .contactMono{
         margin-bottom: 0.5vw;
-        cursor: pointer;
+    }
+    .blog, .twitter, .company{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
     }
 }
 
