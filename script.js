@@ -24,9 +24,15 @@ const APIKEY = "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";
 
 let apiCall = function(userName){
     let url = `https://api.github.com/users/${userName}`;
-    fetch(/* APIUSER+APIUKEY+ */url)
+    fetch(url)
     .then((response) =>
-        response.json().then((data) => {
+    response.json().then((data) => {
+        if(data.message){
+            document.querySelector('.error').style.visibility= "visible";
+        }else{
+            document.querySelector('.error').style.visibility= "hidden";
+            
+            
             /* data = {
                 "login": "octocat",
                 "id": 583231,
@@ -60,37 +66,38 @@ let apiCall = function(userName){
                 "following": 9,
                 "created_at": "2011-01-25T18:44:36Z",
                 "updated_at": "2022-01-24T15:08:43Z"
-              } */
-
+            } */
+            
             console.log(data);
             
             let logo = document.querySelector(".avatar");
             let src = logo.getAttribute("src");
             src = data.avatar_url;
             logo.setAttribute("src", src);
-
+            
             if(data.name == null){
                 document.querySelector(".name").innerHTML = data.login;
             }else{
                 document.querySelector(".name").innerHTML = data.name;
             }
-
+            
             document.querySelector(".login").innerHTML = "@" + (data.login);
-
+            
             let date = new Date(data.created_at);
             const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-            document.querySelector(".date").innerHTML = "Joined " + date.getDay() +" "+ month[date.getMonth()] +" "+ date.getFullYear();
-
+            document.querySelector(".date").innerHTML = "Joined " + date.getDate() +" "+ month[date.getMonth()] +" "+ date.getFullYear();
+            console.log(date.getDay());
+            
             if(data.bio == null){
                 document.querySelector(".profil").innerHTML = "This profile has no bio";
             }else{
                 document.querySelector(".profil").innerHTML = data.bio;
             }
-
+            
             document.querySelector(".repos").innerHTML = data.public_repos;
             document.querySelector(".followers").innerHTML = data.followers;
             document.querySelector(".following").innerHTML = data.following;
-
+            
             if(data.location == null){
                 document.querySelector(".location").innerHTML = "Not available";
                 document.querySelector(".location").style.color = "rgb(75, 106, 155, 60%)";
@@ -108,7 +115,7 @@ let apiCall = function(userName){
                 document.querySelector(".twitter").innerHTML = data.twitter_username;
                 document.querySelector(".twitter").style.color = "#4B6A9B";
                 document.querySelector(".fa-twitter").style.color = "#4B6A9B";
-
+                
                 let twitter = document.querySelector(".twitter");
                 let href = twitter.getAttribute("href");
                 href = data.twitter_username;
@@ -122,7 +129,7 @@ let apiCall = function(userName){
                 document.querySelector(".company").innerHTML = (data.company).substring(1);
                 document.querySelector(".company").style.color = "#4B6A9B";
                 document.querySelector(".fa-building").style.color = "#4B6A9B";
-
+                
                 let company = document.querySelector(".company");
                 let href = company.getAttribute("href");
                 href = "https://" + data.company + ".com";
@@ -133,28 +140,23 @@ let apiCall = function(userName){
                 document.querySelector(".blog").style.color = "rgb(75, 106, 155, 60%)";
                 document.querySelector(".fa-link").style.color = "rgb(75, 106, 155, 60%)";
             }else{
-                document.querySelector(".blog").innerHTML = (data.blog).substring(8);
+                document.querySelector(".blog").innerHTML = data.blog;
                 document.querySelector(".blog").style.color = "#4B6A9B";
                 document.querySelector(".fa-link").style.color = "#4B6A9B";
-
+                
                 let link = document.querySelector(".blog");
                 let href = link.getAttribute("href");
                 href = data.blog;
                 link.setAttribute("href", href);
             }
-        })
+        }
+    })
     )  
 }
 
 /* btn search + error */
 document.querySelector(".btnSearch").addEventListener('click', function(){
-    if((document.querySelector('.searchBar').value == "") || (document.querySelector('.searchBar').value == "")){
-        document.querySelector('.error').style.visibility= "visible";
-    }else{
-        document.querySelector('.error').style.visibility= "hidden";
-        let user = document.querySelector('.searchBar').value;
-        apiCall(user);
-    }
+    let user = document.querySelector('.searchBar').value;
+    apiCall(user)
 })
 apiCall("octocat");
-
