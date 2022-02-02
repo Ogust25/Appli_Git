@@ -19,13 +19,49 @@ btnTheme.addEventListener("click", function(){
 })
 
 /* API GitHub */
+const APIUSER = "Ogust25"
 const APIKEY = "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";
 
 let apiCall = function(userName){
     let url = `https://api.github.com/users/${userName}`;
-    fetch(url)
+    fetch(/* APIUSER+APIUKEY+ */url)
     .then((response) =>
         response.json().then((data) => {
+            /* data = {
+                "login": "octocat",
+                "id": 583231,
+                "node_id": "MDQ6VXNlcjU4MzIzMQ==",
+                "avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false,
+                "name": "The Octocat",
+                "company": "@github",
+                "blog": "https://github.blog",
+                "location": "San Francisco",
+                "email": null,
+                "hireable": null,
+                "bio": null,
+                "twitter_username": null,
+                "public_repos": 8,
+                "public_gists": 8,
+                "followers": 4721,
+                "following": 9,
+                "created_at": "2011-01-25T18:44:36Z",
+                "updated_at": "2022-01-24T15:08:43Z"
+              } */
+
             console.log(data);
             
             let logo = document.querySelector(".avatar");
@@ -41,10 +77,9 @@ let apiCall = function(userName){
 
             document.querySelector(".login").innerHTML = "@" + (data.login);
 
-            let year = (data.created_at).substring(0,4);
-            let month = (data.created_at).substring(5,7);
-            let day = (data.created_at).substring(8,10);
-            document.querySelector(".date").innerHTML = "Joined " + day +" "+ month +" "+ year;
+            let date = new Date(data.created_at);
+            const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+            document.querySelector(".date").innerHTML = "Joined " + date.getDay() +" "+ month[date.getMonth()] +" "+ date.getFullYear();
 
             if(data.bio == null){
                 document.querySelector(".profil").innerHTML = "This profile has no bio";
@@ -90,7 +125,7 @@ let apiCall = function(userName){
 
                 let company = document.querySelector(".company");
                 let href = company.getAttribute("href");
-                href = data.company;
+                href = "https://" + data.company + ".com";
                 company.setAttribute("href", href);
             }
             if((data.blog == null) || (data.blog == "")){
@@ -123,5 +158,3 @@ document.querySelector(".btnSearch").addEventListener('click', function(){
 })
 apiCall("octocat");
 
-
-/* subs split */
