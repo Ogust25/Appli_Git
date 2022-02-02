@@ -41,7 +41,10 @@ let apiCall = function(userName){
 
             document.querySelector(".login").innerHTML = "@" + (data.login);
 
-            document.querySelector(".date").innerHTML = "Joined " + (data.created_at);
+            let year = (data.created_at).substring(0,4);
+            let month = (data.created_at).substring(5,7);
+            let day = (data.created_at).substring(8,10);
+            document.querySelector(".date").innerHTML = "Joined " + day +" "+ month +" "+ year;
 
             if(data.bio == null){
                 document.querySelector(".profil").innerHTML = "This profile has no bio";
@@ -81,7 +84,7 @@ let apiCall = function(userName){
                 document.querySelector(".company").style.color = "rgb(75, 106, 155, 60%)";
                 document.querySelector(".fa-building").style.color = "rgb(75, 106, 155, 60%)";
             }else{
-                document.querySelector(".company").innerHTML = data.company;
+                document.querySelector(".company").innerHTML = (data.company).substring(1);
                 document.querySelector(".company").style.color = "#4B6A9B";
                 document.querySelector(".fa-building").style.color = "#4B6A9B";
 
@@ -95,7 +98,7 @@ let apiCall = function(userName){
                 document.querySelector(".blog").style.color = "rgb(75, 106, 155, 60%)";
                 document.querySelector(".fa-link").style.color = "rgb(75, 106, 155, 60%)";
             }else{
-                document.querySelector(".blog").innerHTML = data.blog;
+                document.querySelector(".blog").innerHTML = (data.blog).substring(8);
                 document.querySelector(".blog").style.color = "#4B6A9B";
                 document.querySelector(".fa-link").style.color = "#4B6A9B";
 
@@ -119,3 +122,6 @@ document.querySelector(".btnSearch").addEventListener('click', function(){
     }
 })
 apiCall("octocat");
+
+
+/* subs split */
