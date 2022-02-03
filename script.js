@@ -168,5 +168,11 @@ document.querySelector(".btnSearch").addEventListener('click', function(){
     let user = document.querySelector('.searchBar').value;
     apiCall(user)
 })
+document.querySelector(".searchBar").addEventListener("keydown", function(event){
+    if(event.key === "Enter"){
+        let user = document.querySelector('.searchBar').value;
+        apiCall(user)
+    }
+})
 
 apiCall("octocat");

@@ -385,7 +385,7 @@ main {
   .main_box {
     grid-area: 2/2/3/3;
     grid-template-columns: 90vw;
-    grid-template-rows: 5vh 10vh 66vh;
+    grid-template-rows: 5vh 6vh 66vh;
     grid-gap: 5vw;
   }
 
@@ -401,7 +401,7 @@ main {
     padding-right: 0;
   }
   nav button {
-    height: 8vh;
+    height: 5vh;
     width: 20vw;
     font-size: 0.8rem;
     margin-right: 2vw;
