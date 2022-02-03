@@ -27,13 +27,16 @@ let apiCall = function(userName){
     fetch(url)
     .then((response) =>
     response.json().then((data) => {
+        console.log(data);
+
+        /* msg error */
         if(data.message){
             document.querySelector('.error').style.visibility= "visible";
         }else{
             document.querySelector('.error').style.visibility= "hidden";
-            
-            
-            /* data = {
+                
+            /* backup api
+            data = {
                 "login": "octocat",
                 "id": 583231,
                 "node_id": "MDQ6VXNlcjU4MzIzMQ==",
@@ -68,36 +71,39 @@ let apiCall = function(userName){
                 "updated_at": "2022-01-24T15:08:43Z"
             } */
             
-            console.log(data);
-            
+            /* API: image */
             let logo = document.querySelector(".avatar");
             let src = logo.getAttribute("src");
             src = data.avatar_url;
             logo.setAttribute("src", src);
             
+            /* API: name + login */
             if(data.name == null){
                 document.querySelector(".name").innerHTML = data.login;
             }else{
                 document.querySelector(".name").innerHTML = data.name;
             }
-            
             document.querySelector(".login").innerHTML = "@" + (data.login);
             
+            /* API: date de création */
             let date = new Date(data.created_at);
             const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
             document.querySelector(".date").innerHTML = "Joined " + date.getDate() +" "+ month[date.getMonth()] +" "+ date.getFullYear();
             console.log(date.getDay());
             
+            /* API: bio */
             if(data.bio == null){
                 document.querySelector(".profil").innerHTML = "This profile has no bio";
             }else{
                 document.querySelector(".profil").innerHTML = data.bio;
             }
             
+            /* API: stats */
             document.querySelector(".repos").innerHTML = data.public_repos;
             document.querySelector(".followers").innerHTML = data.followers;
             document.querySelector(".following").innerHTML = data.following;
             
+            /* API: location */
             if(data.location == null){
                 document.querySelector(".location").innerHTML = "Not available";
                 document.querySelector(".location").style.color = "rgb(75, 106, 155, 60%)";
@@ -107,6 +113,8 @@ let apiCall = function(userName){
                 document.querySelector(".location").style.color = "#4B6A9B";
                 document.querySelector(".fa-map-marker-alt").style.color = "#4B6A9B";
             }
+
+            /* API: twitter */
             if(data.twitter_username == null){
                 document.querySelector(".twitter").innerHTML = "Not available";
                 document.querySelector(".twitter").style.color = "rgb(75, 106, 155, 60%)";
@@ -121,6 +129,8 @@ let apiCall = function(userName){
                 href = data.twitter_username;
                 twitter.setAttribute("href", "https://twitter.com/" + href);
             }
+
+            /* API: company */
             if(data.company == null){
                 document.querySelector(".company").innerHTML = "Not available";
                 document.querySelector(".company").style.color = "rgb(75, 106, 155, 60%)";
@@ -135,6 +145,8 @@ let apiCall = function(userName){
                 href = "https://" + data.company + ".com";
                 company.setAttribute("href", href);
             }
+
+            /* API: blog */
             if((data.blog == null) || (data.blog == "")){
                 document.querySelector(".blog").innerHTML = "Not available";
                 document.querySelector(".blog").style.color = "rgb(75, 106, 155, 60%)";
@@ -154,9 +166,10 @@ let apiCall = function(userName){
     )  
 }
 
-/* btn search + error */
+/* btn search */
 document.querySelector(".btnSearch").addEventListener('click', function(){
     let user = document.querySelector('.searchBar').value;
     apiCall(user)
 })
+
 apiCall("octocat");
