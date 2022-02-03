@@ -371,6 +371,7 @@ main{
 
 @media screen and (max-width: 425px){
     body{
+        height: 100%;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 2vh 1fr;
     }
@@ -387,7 +388,7 @@ main{
         }
         input{
             font-size: 0.75rem;
-            width: 47vw;
+            width: 40vw;
         }
         label{
             padding-right: 0;
@@ -399,7 +400,7 @@ main{
             margin-right: 2vw;
         }
         .error{
-            display: none;
+            text-align: center;
         }
     }
     main{
