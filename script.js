@@ -27,7 +27,6 @@ let apiCall = function(userName){
     fetch(url)
     .then((response) =>
     response.json().then((data) => {
-        console.log(data);
 
         /* msg error */
         if(data.message){
@@ -89,7 +88,6 @@ let apiCall = function(userName){
             let date = new Date(data.created_at);
             const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
             document.querySelector(".date").innerHTML = "Joined " + date.getDate() +" "+ month[date.getMonth()] +" "+ date.getFullYear();
-            console.log(date.getDay());
             
             /* API: bio */
             if(data.bio == null){
