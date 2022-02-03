@@ -183,6 +183,10 @@ nav{
         font-size: 1.1rem;
         caret-color: $actionColor;
     }
+    input:focus::placeholder{
+        transition: 0.5s ease-in;
+        color: transparent;
+    }
     .error{
         color: #F74646;
         font-size: 0.875rem;

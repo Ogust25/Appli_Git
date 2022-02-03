@@ -19,7 +19,6 @@ btnTheme.addEventListener("click", function(){
 })
 
 /* API GitHub */
-const APIUSER = "Ogust25"
 const APIKEY = "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";
 
 let apiCall = function(userName){
